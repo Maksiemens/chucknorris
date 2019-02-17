@@ -1,0 +1,8 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/template-selectors";
+@import "../default-joke-page/default-joke-page.component.scss";
+
+.joke-page {
+  @extend .default-joke-page;
+}
