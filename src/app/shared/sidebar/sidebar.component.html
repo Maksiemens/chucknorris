@@ -1,0 +1,31 @@
+<div class="sidebar">
+  <ul class="list" *ngIf="(categories$ | async) as categories">
+    <li class="list__item" *ngFor="let category of (categories | slice: 0:10)">
+      <a
+        routerLinkActive="active"
+        class="list__link"
+        [routerLink]="['/jokes', category]"
+        >{{ category }}</a
+      >
+    </li>
+
+    <ng-container *ngIf="showMore">
+      <ng-container *ngFor="let category of categories; let i = index">
+        <li class="list__item" *ngIf="i >= 10">
+          <a
+            routerLinkActive="active"
+            class="list__link"
+            [routerLink]="['/jokes', category]"
+            >{{ category }}</a
+          >
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+
+  <div class="more" *ngIf="!showMore">
+    <button class="more__button" (click)="getMore()">
+      more
+    </button>
+  </div>
+</div>

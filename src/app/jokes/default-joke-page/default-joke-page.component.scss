@@ -1,0 +1,51 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/template-selectors";
+
+:host {
+  width: 100%;
+}
+
+.default-joke-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 50px;
+      background: url("../../../assets/img/chuck-animated.png") repeat-x center
+        center / auto;
+    }
+
+    &__text {
+      max-width: 400px;
+      text-align: center;
+      padding: 20px;
+      @include font-primary(18px, $color-2, 700, 24px);
+    }
+  }
+
+  .action {
+    margin-top: 20px;
+    &__button {
+      @extend %reset_button;
+      border: 1px solid $color-1;
+      border-radius: 5px;
+      padding: 7px 10px;
+      @include font-primary(18px, $color-1, 400);
+    }
+  }
+}

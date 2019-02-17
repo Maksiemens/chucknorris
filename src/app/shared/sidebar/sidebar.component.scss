@@ -1,0 +1,62 @@
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+@import "../../../styles/template-selectors";
+
+:host {
+}
+
+.sidebar {
+  width: 170px;
+  border: 1px solid $color-2;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+      padding: 10px 0;
+    }
+
+    &__link {
+      @extend %link_button;
+      @include font-primary(20px, $color-1, 400);
+      transition: transform 0.5s ease-out;
+
+      &:hover {
+        transform: translate(5px, 0);
+      }
+    }
+
+    .active {
+      @include font-primary(20px, $color-2, 400);
+      text-decoration: underline;
+    }
+  }
+
+  .more {
+    margin-top: 10px;
+    position: relative;
+
+    &::after {
+      content: "";
+      border: 5px solid transparent;
+      border-left: 15px solid $color-1;
+      position: absolute;
+      top: 5px;
+      right: -25px;
+    }
+
+    &__button {
+      @extend %reset_button;
+      @include font-primary(16px, $color-1, 400);
+    }
+  }
+}
